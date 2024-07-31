@@ -7,6 +7,6 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 
 const PORT = 1337
-app.listen(POST, () => {
+app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
 })
