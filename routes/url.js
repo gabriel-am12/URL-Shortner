@@ -30,4 +30,21 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/:short", async (req, res) => {
+  let shortId = req.params.short;
+  try {
+    let url = await URL.findOne({
+      where: {
+        shortUrl: shortId,
+      },
+    });
+    if(!url) {
+      return res.status(404).send("Invalid short url");
+    }
+    return res.redirect(url.longUrl)
+  } catch (e) {
+    return res.status(500).send(e);
+  }
+})
+
 module.exports = router;
