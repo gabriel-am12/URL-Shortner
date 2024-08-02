@@ -11,7 +11,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/urlapi', shortUrl);
 app.use('', homeRoutes);
 
-const PORT = 1337
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`Server is running on port ${PORT}`)
 })
